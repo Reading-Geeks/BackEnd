@@ -15,8 +15,8 @@ obj.addData = async function addBooksHandler(request, response) {
     description: description,
     image: image,
     authors: authors,
-    authors: categories,
-    authors: publishedDate,
+    categories: categories,
+    publishedDate: publishedDate,
     email: email,
   });
   FavModel.find({ email: email }, (err, result) => {

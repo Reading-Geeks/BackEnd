@@ -18,6 +18,7 @@ const getuserinfo = require("./modules/favbook/getuserinfo");
 const addinfo = require("./modules/favbook/addinfo");
 const updateUser = require("./modules/favbook/updateUser");
 const FavHandler = require("./modules/favbook/favHandlers");
+const FavDonateHandler = require("./modules/favbook/donateToFavHandlers");
 // favpage works end here marwan anda faisal
 const PORT = process.env.PORT || 3333;
 function homeHandler(request, respond) {
@@ -25,8 +26,11 @@ function homeHandler(request, respond) {
 }
 
 const addBookHandler = require("./modules/donate/donate");
-const {updateBookHandler, deleteBookHandler, getBooksHandler} = require("./modules/donate/update");
-
+const {
+  updateBookHandler,
+  deleteBookHandler,
+  getBooksHandler,
+} = require("./modules/donate/update");
 
 // * check if you are connected with the database
 const db = mongoose.connection;
@@ -44,12 +48,13 @@ server.put("/updateUser/:id", updateUser);
 server.get("/readData", FavHandler.readData);
 server.post("/addData", FavHandler.addData);
 server.delete("/removeData/:id", FavHandler.removeData);
-
+server.get("/readDonateData", FavDonateHandler.readDonateData);
+server.post("/addDonateData", FavDonateHandler.addDonateData);
+server.delete("/removeDonateData/:id", FavDonateHandler.removeDonateData);
 // favpage works end here marwan anda faisal
 server.post("/donate", addBookHandler);
 server.put("/donate/:id", updateBookHandler);
 server.delete("/donate/:id", deleteBookHandler);
 server.get("/donate", getBooksHandler);
-
 
 server.listen(PORT, () => console.log(`listening on ${PORT}`));

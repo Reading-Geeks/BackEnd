@@ -25,6 +25,8 @@ function homeHandler(request, respond) {
 }
 
 const addBookHandler = require("./modules/donate/donate");
+const {updateBookHandler, deleteBookHandler, getBooksHandler} = require("./modules/donate/update");
+
 
 // * check if you are connected with the database
 const db = mongoose.connection;
@@ -44,7 +46,10 @@ server.post("/addData", FavHandler.addData);
 server.delete("/removeData", FavHandler.removeData);
 
 // favpage works end here marwan anda faisal
-server.get("/donate", addBookHandler);
 server.post("/donate", addBookHandler);
+server.put("/donate/:id", updateBookHandler);
+server.delete("/donate/:id", deleteBookHandler);
+server.get("/donate", getBooksHandler);
+
 
 server.listen(PORT, () => console.log(`listening on ${PORT}`));

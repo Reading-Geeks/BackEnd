@@ -1,48 +1,25 @@
 "use strict";
 
 const mongoose = require("mongoose");
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const server = express();
-server.use(cors());
-server.use(express.json());
-const PORT = process.env.PORT || 3333;
-
-// const main = require('./main');
-
-let bookModel;
-main().catch((err) => console.log(err));
-
-async function main() {
-  await mongoose.connect(process.env.URL);
-  const bookSchema = new mongoose.Schema({
-    title: String,
-    description: String,
-    category: String,
-    author: String,
-    publishedDate: String,
-    email: String,
-  });
-  bookModel = mongoose.model("DonateBook", bookSchema);
-  // seedData();
-}
-
-async function seedData() {
-  const firstBookSample = new bookModel({
-    title: "Fake",
-    description: "Fake",
-    category: "Fake",
-    author: "Fake",
-    publishedDate: "Fake",
-    email: "readinggeeks301@gmail.com",
-  });
-  await firstBookSample.save();
-}
-/*------------------------------------------------------------------------------ */
+const bookModel = require('./schemaAndModel');
 
 
-/*------------------------------------------------------------------------------ */
+// async function main() {
+//   // seedData();
+// }
+// async function seedData() {
+//   const firstBookSample = new bookModel({
+//     title: "Fake",
+//     description: "Fake",
+//     category: "Fake",
+//     author: "Fake",
+//     publishedDate: "Fake",
+//     email: "readinggeeks301@gmail.com",
+//   });
+//   await firstBookSample.save();
+// }
+
+/*-----------------------------Add (POST) a book-------------------------------- */
 
 async function addBookHandler(req, res) {
   const { title, description, category, author, publishedDate, email } =
@@ -67,5 +44,5 @@ async function addBookHandler(req, res) {
 
   });
 }
-
+/*------------------------------------------------------------------------------ */
 module.exports = addBookHandler;

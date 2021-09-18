@@ -1,8 +1,7 @@
 "use strict";
 
 const mongoose = require("mongoose");
-const bookModel = require('./schemaAndModel');
-
+const bookModel = require("./schemaAndModel");
 
 // async function main() {
 //   // seedData();
@@ -34,14 +33,13 @@ async function addBookHandler(req, res) {
     email: email,
   });
 
-  bookModel.find({email:email}, (err, result) =>{
-    if(err){
-        console.log(err);
-    }else{
-        // console.log(result);
-        res.send(result);
+  bookModel.find({ email: email }, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      // console.log(result);
+      res.send(result);
     }
-
   });
 }
 /*------------------------------------------------------------------------------ */

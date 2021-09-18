@@ -8,6 +8,10 @@ const cors = require("cors");
 const server = express();
 server.use(cors());
 server.use(express.json());
+const {
+  getBooksTerm,
+  getBestSellerBooks,
+} = require("./modules/search/getBooksAPI");
 const getSearchBooksAPI = require("./modules/search/getBooksAPI");
 // favpage works start marwan and faisal
 const getuserinfo = require("./modules/favbook/getuserinfo");
@@ -28,7 +32,8 @@ db.on("error", (err) => console.log(err, "connection error:"));
 db.once("open", () => console.log("connected to database"));
 
 server.get("/", homeHandler);
-server.get("/search", getSearchBooksAPI);
+server.get("/search", getBooksTerm);
+server.get("/search/best-seller", getBestSellerBooks);
 server.post("/search/:id", (req, res) => {});
 // favpage works start marwan and faisal
 server.post("/addinfo", addinfo);

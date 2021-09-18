@@ -9,6 +9,7 @@ const AddBookSchema = new mongoose.Schema({
   categories: String,
   publishedDate: String,
   email: String,
+  isFav: Boolean,
 });
 // LoadingData();
 FavModel = mongoose.model("FavModel", AddBookSchema);

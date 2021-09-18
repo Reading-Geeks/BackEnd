@@ -43,7 +43,7 @@ server.get("/userInfo", getuserinfo);
 server.put("/updateUser/:id", updateUser);
 server.get("/readData", FavHandler.readData);
 server.post("/addData", FavHandler.addData);
-server.delete("/removeData", FavHandler.removeData);
+server.delete("/removeData/:id", FavHandler.removeData);
 
 // favpage works end here marwan anda faisal
 server.post("/donate", addBookHandler);

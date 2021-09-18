@@ -41,6 +41,7 @@ obj.readData = async function getBooksHandler(request, response) {
 
 obj.removeData = function deleteBooksHandler(request, response) {
   const bookId = request.params.id;
+  console.log(bookId);
   const email = request.query.email;
   FavModel.deleteOne({ _id: bookId }, (err, result) => {
     FavModel.find({ email: email }, (err, result) => {

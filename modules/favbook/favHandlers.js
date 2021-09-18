@@ -9,6 +9,7 @@ obj.addData = async function addBooksHandler(request, response) {
   const categories = request.body.categories;
   const publishedDate = request.body.publishedDate;
   const email = request.body.email;
+  const isFav = request.body.isFav;
   await FavModel.create({
     id: id,
     title: title,
@@ -18,6 +19,7 @@ obj.addData = async function addBooksHandler(request, response) {
     categories: categories,
     publishedDate: publishedDate,
     email: email,
+    isFav,
   });
   FavModel.find({ email: email }, (err, result) => {
     if (err) {

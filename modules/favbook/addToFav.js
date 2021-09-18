@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const AddBookSchema = new mongoose.Schema({
-  id: Number,
+  id: String,
   title: String,
   description: String,
   image: String,

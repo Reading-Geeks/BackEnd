@@ -8,9 +8,9 @@ const bookModel =require("./schemaAndModel");
 
 function updateBookHandler(req, res) {
   const id = req.params.id;
-  const { title, description, category, author, publishedDate, email } =
+  const { title, description, category, author, image, publishedDate, email } =
     req.body;
-  console.log(id, title, description, category, author, publishedDate, email);
+  // console.log(id, title, description, category, author, image, publishedDate, email);
   //   console.log("HI");
   bookModel.findByIdAndUpdate(
     id,
@@ -19,6 +19,7 @@ function updateBookHandler(req, res) {
       description: description,
       category: category,
       author: author,
+      image: image,
       publishedDate: publishedDate,
       email: email,
     },

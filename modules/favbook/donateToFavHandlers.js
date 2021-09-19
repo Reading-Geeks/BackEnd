@@ -34,6 +34,17 @@ obj.addDonateData = async function addDonateHandler(request, response) {
 obj.readDonateData = async function getDonateHandler(request, response) {
   const email = request.query.email;
   // console.log(takenemail)
+  FavDonateModel.find({  }, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      response.send(result);
+    }
+  });
+};
+obj.readDonateData2 = async function getDonateHandler(request, response) {
+  const email = request.query.email;
+  // console.log(takenemail)
   FavDonateModel.find({ takenemail: email }, (err, result) => {
     if (err) {
       console.log(err);
@@ -42,7 +53,6 @@ obj.readDonateData = async function getDonateHandler(request, response) {
     }
   });
 };
-
 obj.removeDonateData = function deleteDonateHandler(request, response) {
   const bookId = request.params.id;
   console.log(bookId);

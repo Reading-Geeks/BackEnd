@@ -59,6 +59,7 @@ server.get("/readData", FavHandler.readData);
 server.post("/addData", FavHandler.addData);
 server.delete("/removeData/:id", FavHandler.removeData);
 server.get("/readDonateData", FavDonateHandler.readDonateData);
+server.get("/readDonateData2", FavDonateHandler.readDonateData2);
 server.post("/addDonateData", FavDonateHandler.addDonateData);
 server.delete("/removeDonateData/:id", FavDonateHandler.removeDonateData);
 // favpage works end here marwan anda faisal

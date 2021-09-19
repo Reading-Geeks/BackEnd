@@ -23,7 +23,7 @@ function updateBookHandler(req, res) {
       email: email,
     },
     (err, result) => {
-      bookModel.find({ email: email }, (err, result) => {
+      bookModel.find({}, (err, result) => {
         if (err) {
           console.log(err);
         } else {
@@ -43,7 +43,7 @@ function deleteBookHandler(req, res) {
   const id = req.params.id;
   const email = req.query.email;
   bookModel.deleteOne({ _id: id }, (err, result) => {
-    bookModel.find({ email: email }, (err, result) => {
+    bookModel.find({}, (err, result) => {
       if (err) {
         console.log(err);
       } else {
@@ -60,7 +60,7 @@ function deleteBookHandler(req, res) {
 
 function getBooksHandler(req, res) {
   const email = req.query.email;
-  bookModel.find({ email: email }, (err, result) => {
+  bookModel.find({}, (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -70,4 +70,3 @@ function getBooksHandler(req, res) {
 }
 
 module.exports = {updateBookHandler, deleteBookHandler, getBooksHandler};
-

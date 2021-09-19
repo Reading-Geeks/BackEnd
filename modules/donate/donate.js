@@ -33,7 +33,7 @@ async function addBookHandler(req, res) {
     email: email,
   });
 
-  bookModel.find({ email: email }, (err, result) => {
+  bookModel.find({}, (err, result) => {
     if (err) {
       console.log(err);
     } else {

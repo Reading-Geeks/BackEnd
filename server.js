@@ -19,6 +19,16 @@ const addinfo = require("./modules/favbook/addinfo");
 const updateUser = require("./modules/favbook/updateUser");
 const FavHandler = require("./modules/favbook/favHandlers");
 const FavDonateHandler = require("./modules/favbook/donateToFavHandlers");
+
+
+const {
+  getaboutUsInfo,
+  updateAbotUsHandler,
+  getAboutHandler
+
+} = require("./modules/aboutus/Aboutuspage");
+
+
 // favpage works end here marwan anda faisal
 const PORT = process.env.PORT || 3333;
 function homeHandler(request, respond) {
@@ -56,5 +66,8 @@ server.post("/donate", addBookHandler);
 server.put("/donate/:id", updateBookHandler);
 server.delete("/donate/:id", deleteBookHandler);
 server.get("/donate", getBooksHandler);
+
+server.get("/aboutus", getAboutHandler);
+// server.put('/updateAbotUs/:id',updateAbotUsHandler);
 
 server.listen(PORT, () => console.log(`listening on ${PORT}`));

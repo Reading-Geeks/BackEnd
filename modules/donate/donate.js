@@ -3,6 +3,7 @@
 const mongoose = require("mongoose");
 const bookModel = require("./schemaAndModel");
 
+// main().catch(err => console.log(err));
 // async function main() {
 //   // seedData();
 // }
@@ -12,6 +13,7 @@ const bookModel = require("./schemaAndModel");
 //     description: "Fake",
 //     category: "Fake",
 //     author: "Fake",
+//     image: "Fake",
 //     publishedDate: "Fake",
 //     email: "readinggeeks301@gmail.com",
 //   });
@@ -21,7 +23,7 @@ const bookModel = require("./schemaAndModel");
 /*-----------------------------Add (POST) a book-------------------------------- */
 
 async function addBookHandler(req, res) {
-  const { title, description, category, author, publishedDate, email } =
+  const { title, description, category, author, image, publishedDate, email } =
     req.body;
   //   console.log(title, description, category, author, publishedDate, email);
   await bookModel.create({
@@ -29,6 +31,7 @@ async function addBookHandler(req, res) {
     description: description,
     category: category,
     author: author,
+    image: image,
     publishedDate: publishedDate,
     email: email,
   });

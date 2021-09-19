@@ -7,6 +7,7 @@ title: String,
 description: String,
 category: String,
 author: String,
+image: String,
 publishedDate: String,
 email: String,
 });

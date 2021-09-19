@@ -9,6 +9,7 @@ const DonateBookSchema = new mongoose.Schema({
   publishedDate: String,
   email: String,
   isFav: Boolean,
+  takenemail:String,
 });
 // LoadingData();
 FavDonateModel = mongoose.model("FavDonateModel", DonateBookSchema);
@@ -22,6 +23,8 @@ async function LoadingData() {
     author: "",
     publishedDate: "",
     email: "",
+    takenemail:"",
+    
   });
   await newBook.save();
 }

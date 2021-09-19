@@ -60,7 +60,7 @@ function deleteBookHandler(req, res) {
 // server.get("/donate", getBooksHandler);
 
 function getBooksHandler(req, res) {
-  const email = req.query.email;
+  // const email = req.query.email;
   bookModel.find({}, (err, result) => {
     if (err) {
       console.log(err);

@@ -9,6 +9,8 @@ obj.addDonateData = async function addDonateHandler(request, response) {
   const publishedDate = request.body.publishedDate;
   const email = request.body.email;
   const isFav = request.body.isFav;
+  const takenemail=request.body.takenemail;
+  // console.log(takenemail)
   await FavDonateModel.create({
     id: id,
     title: title,
@@ -18,8 +20,9 @@ obj.addDonateData = async function addDonateHandler(request, response) {
     publishedDate: publishedDate,
     email: email,
     isFav,
+    takenemail:takenemail,
   });
-  FavDonateModel.find({ email: email }, (err, result) => {
+  FavDonateModel.find({ email: takenemail }, (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -30,7 +33,8 @@ obj.addDonateData = async function addDonateHandler(request, response) {
 
 obj.readDonateData = async function getDonateHandler(request, response) {
   const email = request.query.email;
-  FavDonateModel.find({ email: email }, (err, result) => {
+  // console.log(takenemail)
+  FavDonateModel.find({ takenemail: email }, (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -44,7 +48,7 @@ obj.removeDonateData = function deleteDonateHandler(request, response) {
   console.log(bookId);
   const email = request.query.email;
   FavDonateModel.deleteOne({ _id: bookId }, (err, result) => {
-    FavDonateModel.find({ email: email }, (err, result) => {
+    FavDonateModel.find({ takenemail: email }, (err, result) => {
       if (err) {
         console.log(err);
       } else {

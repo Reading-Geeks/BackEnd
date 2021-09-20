@@ -11,21 +11,7 @@ const AddBookSchema = new mongoose.Schema({
   email: String,
   isFav: Boolean,
 });
-// LoadingData();
-FavModel = mongoose.model("FavModel", AddBookSchema);
 
-async function LoadingData() {
-  const newBook = new FavModel({
-    id: "",
-    title: "",
-    description: "",
-    image: "",
-    authors: "",
-    categories: "",
-    publishedDate: "",
-    email: "",
-  });
-  await newBook.save();
-}
+FavModel = mongoose.model("FavModel", AddBookSchema);
 
 module.exports = FavModel;

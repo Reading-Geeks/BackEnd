@@ -9,24 +9,9 @@ const DonateBookSchema = new mongoose.Schema({
   publishedDate: String,
   email: String,
   isFav: Boolean,
-  takenemail:String,
+  takenemail: String,
+  image: String,
 });
-// LoadingData();
 FavDonateModel = mongoose.model("FavDonateModel", DonateBookSchema);
-
-async function LoadingData() {
-  const newBook = new FavDonateModel({
-    id: "",
-    title: "",
-    description: "",
-    category: "",
-    author: "",
-    publishedDate: "",
-    email: "",
-    takenemail:"",
-    
-  });
-  await newBook.save();
-}
 
 module.exports = FavDonateModel;

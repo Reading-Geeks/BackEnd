@@ -1,16 +1,8 @@
 const FavDonateModel = require("./donateToFav");
 const obj = {};
 obj.addDonateData = async function addDonateHandler(request, response) {
-  const id = request.body.id;
-  const title = request.body.title;
-  const description = request.body.description;
-  const category = request.body.category;
-  const author = request.body.author;
-  const publishedDate = request.body.publishedDate;
-  const email = request.body.email;
-  const isFav = request.body.isFav;
-  const takenemail=request.body.takenemail;
-  // console.log(takenemail)
+  const {id,title,description,category,author,publishedDate,email,isFav,takenemail,image } = request.body;
+  
   await FavDonateModel.create({
     id: id,
     title: title,
@@ -21,6 +13,7 @@ obj.addDonateData = async function addDonateHandler(request, response) {
     email: email,
     isFav,
     takenemail:takenemail,
+    image:image,
   });
   FavDonateModel.find({ email: takenemail }, (err, result) => {
     if (err) {
@@ -33,7 +26,6 @@ obj.addDonateData = async function addDonateHandler(request, response) {
 
 obj.readDonateData = async function getDonateHandler(request, response) {
   const email = request.query.email;
-  // console.log(takenemail)
   FavDonateModel.find({  }, (err, result) => {
     if (err) {
       console.log(err);
@@ -44,7 +36,7 @@ obj.readDonateData = async function getDonateHandler(request, response) {
 };
 obj.readDonateData2 = async function getDonateHandler(request, response) {
   const email = request.query.email;
-  // console.log(takenemail)
+
   FavDonateModel.find({ takenemail: email }, (err, result) => {
     if (err) {
       console.log(err);
@@ -55,7 +47,6 @@ obj.readDonateData2 = async function getDonateHandler(request, response) {
 };
 obj.removeDonateData = function deleteDonateHandler(request, response) {
   const bookId = request.params.id;
-  console.log(bookId);
   const email = request.query.email;
   FavDonateModel.deleteOne({ _id: bookId }, (err, result) => {
     FavDonateModel.find({ takenemail: email }, (err, result) => {

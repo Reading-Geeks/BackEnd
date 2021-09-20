@@ -9,16 +9,5 @@ const userschema = new mongoose.Schema({
   categoriesOfInterest: String,
 });
 let userinfo = mongoose.model("userinfo", userschema);
-// seedData();
-
-async function seedData() {
-  const info = new userinfo({
-    name: "",
-    email: "",
-    finishedBooks: "",
-    categoriesOfInterest: "",
-  });
-  await info.save();
-}
 
 module.exports = userinfo;

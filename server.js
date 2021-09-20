@@ -69,6 +69,6 @@ server.delete("/donate/:id", deleteBookHandler);
 server.get("/donate", getBooksHandler);
 
 server.get("/aboutus", getAboutHandler);
-// server.put('/updateAbotUs/:id',updateAbotUsHandler);
+server.put('/updateAbotUs/:id',updateAbotUsHandler);
 
 server.listen(PORT, () => console.log(`listening on ${PORT}`));

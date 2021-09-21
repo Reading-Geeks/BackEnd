@@ -2,10 +2,10 @@
 const userinfo = require("./userschema");
 function updateUser(req, res) {
   const id = req.params.id;
-  const { name, finishedBooks, categoriesOfInterest, email } = req.body;
+  const { name, finishedBooks, categoriesOfInterest, email,image } = req.body;
   userinfo.findByIdAndUpdate(
     id,
-    { name, finishedBooks, categoriesOfInterest },
+    { name, finishedBooks, categoriesOfInterest,image },
     (err, result) => {
       userinfo.find({ email: email }, (err, result) => {
         if (err) {

@@ -7,6 +7,7 @@ const userschema = new mongoose.Schema({
   email: String,
   finishedBooks: String,
   categoriesOfInterest: String,
+  image:String,
 });
 let userinfo = mongoose.model("userinfo", userschema);
 
